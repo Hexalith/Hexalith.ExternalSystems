@@ -31,13 +31,13 @@ using Hexalith.ExternalSystems.Domain.Helpers;
 /// <seealso cref="BaseEvent" />
 [DataContract]
 [Serializable]
-public abstract class ExternalSystemReferenceCommand : PartitionedCommand
+public class ExternalSystemReferenceCommand : PartitionedCommand
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ExternalSystemReferenceCommand" /> class.
     /// </summary>
     [Obsolete(DefaultLabels.ForSerializationOnly, true)]
-    public ExternalSystemReferenceCommand() => CompanyId = SystemId = ReferenceAggregateId = ReferenceAggregateName = ExternalId = string.Empty;
+    protected ExternalSystemReferenceCommand() => CompanyId = SystemId = ReferenceAggregateId = ReferenceAggregateName = ExternalId = string.Empty;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ExternalSystemReferenceCommand"/> class.
