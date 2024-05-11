@@ -14,9 +14,9 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Hexalith.Infrastructure.WebApis.ExternalSystemsCommands.Controllers;
+namespace Hexalith.ExternalSystems.CommandsWebApis.Controllers;
 
-using Hexalith.Domain.Aggregates;
+using Hexalith.ExternalSystems.Domain.Helpers;
 using Hexalith.Infrastructure.WebApis.Buses;
 
 /// <summary>
@@ -31,7 +31,7 @@ public sealed class ExternalSystemReferenceCommandsBusTopicAttribute : CommandBu
     /// Initializes a new instance of the <see cref="ExternalSystemReferenceCommandsBusTopicAttribute"/> class.
     /// </summary>
     public ExternalSystemReferenceCommandsBusTopicAttribute()
-        : base(ExternalSystemReference.GetAggregateName())
+        : base(ExternalSystemDomainHelper.ExternalSystemReferenceAggregateName)
     {
     }
 }

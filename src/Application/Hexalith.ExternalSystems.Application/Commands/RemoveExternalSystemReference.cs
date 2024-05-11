@@ -14,7 +14,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Hexalith.Application.ExternalSystems.Commands;
+namespace Hexalith.ExternalSystems.Application.Commands;
 
 using System;
 using System.Runtime.Serialization;

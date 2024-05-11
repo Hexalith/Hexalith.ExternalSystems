@@ -14,11 +14,11 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Hexalith.Infrastructure.DaprRuntime.ExternalSystems.Configurations;
+namespace Hexalith.ExternalSystems.DaprAggregates.Configurations;
 
 using Hexalith.Application.Configurations;
-using Hexalith.Domain.Aggregates;
 using Hexalith.Extensions.Configuration;
+using Hexalith.ExternalSystems.Domain.Aggregates;
 
 /// <summary>
 /// Class InvoiceSettings.

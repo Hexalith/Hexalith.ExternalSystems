@@ -16,8 +16,8 @@
 
 namespace Hexalith.Infrastructure.DaprRuntime.ExternalSystems.Configurations;
 
-using Hexalith.Domain.Aggregates;
 using Hexalith.Extensions.Configuration;
+using Hexalith.ExternalSystems.Domain.Aggregates;
 
 /// <summary>
 /// Class ExternalSystemsProjectionsSettings.

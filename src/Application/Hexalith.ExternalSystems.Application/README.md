@@ -1,2 +1,2 @@
-# Hexalith.Application.ExternalSystems
+# Hexalith.ExternalSystems.Application
 

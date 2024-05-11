@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>$(CommonTargetFrameworks)</TargetFramework>
   </PropertyGroup>
@@ -7,5 +7,9 @@
     </ItemGroup>
     <ItemGroup Condition="'$(BuildingInsideVisualStudio)' != 'true' and '$(BuildingByReSharper)' != 'true'">
         <PackageReference Include="Hexalith.Application.Abstractions" Version="$(HexalithVersion)" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\Domain\Hexalith.ExternalSystems.Domain\Hexalith.ExternalSystems.Domain.csproj" />
+      <ProjectReference Include="..\Hexalith.ExternalSystems.Commands\Hexalith.ExternalSystems.Commands.csproj" />
     </ItemGroup>
 </Project>

@@ -14,9 +14,9 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Hexalith.Infrastructure.WebApis.ExternalSystemsEvents.Controllers;
+namespace Hexalith.ExternalSystems.EventsWebApis.Controllers;
 
-using Hexalith.Domain.Aggregates;
+using Hexalith.ExternalSystems.Domain.Helpers;
 using Hexalith.Infrastructure.WebApis.Buses;
 
 /// <summary>
@@ -31,7 +31,7 @@ public sealed class ExternalSystemReferenceEventsBusTopicAttribute : EventBusTop
     /// Initializes a new instance of the <see cref="ExternalSystemReferenceEventsBusTopicAttribute"/> class.
     /// </summary>
     public ExternalSystemReferenceEventsBusTopicAttribute()
-        : base(ExternalSystemReference.GetAggregateName())
+        : base(ExternalSystemDomainHelper.ExternalSystemReferenceAggregateName)
     {
     }
 }

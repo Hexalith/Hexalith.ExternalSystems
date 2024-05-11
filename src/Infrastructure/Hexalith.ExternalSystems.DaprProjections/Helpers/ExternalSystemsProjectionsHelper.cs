@@ -23,8 +23,8 @@ using Dapr.Actors.Client;
 using Dapr.Actors.Runtime;
 
 using Hexalith.Application;
-using Hexalith.Application.ExternalSystems.Services;
 using Hexalith.Extensions.Configuration;
+using Hexalith.ExternalSystems.Application.Services;
 using Hexalith.Infrastructure.DaprRuntime.Abstractions.Actors;
 using Hexalith.Infrastructure.DaprRuntime.Actors;
 using Hexalith.Infrastructure.DaprRuntime.ExternalSystems.Configurations;

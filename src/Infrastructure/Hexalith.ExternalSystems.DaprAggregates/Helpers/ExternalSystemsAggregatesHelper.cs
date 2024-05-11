@@ -14,13 +14,13 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Hexalith.Infrastructure.DaprRuntime.ExternalSystems.Aggregates.Helpers;
+namespace Hexalith.ExternalSystems.DaprAggregates.Helpers;
 
 using System.Diagnostics.CodeAnalysis;
 
 using Dapr.Actors.Runtime;
 
-using Hexalith.Domain.Aggregates;
+using Hexalith.ExternalSystems.Domain.Helpers;
 using Hexalith.Infrastructure.DaprRuntime.Sales.Actors;
 
 /// <summary>
@@ -36,7 +36,8 @@ public static class ExternalSystemsAggregatesHelper
     public static ActorRegistrationCollection AddExternalSystemsAggregates([NotNull] this ActorRegistrationCollection actors)
     {
         ArgumentNullException.ThrowIfNull(actors);
-        actors.RegisterActor<AggregateActor>(AggregateActor.GetAggregateActorName(ExternalSystemReference.GetAggregateName()));
+        actors.RegisterActor<AggregateActor>(AggregateActor
+            .GetAggregateActorName(ExternalSystemDomainHelper.ExternalSystemReferenceAggregateName));
         return actors;
     }
 }

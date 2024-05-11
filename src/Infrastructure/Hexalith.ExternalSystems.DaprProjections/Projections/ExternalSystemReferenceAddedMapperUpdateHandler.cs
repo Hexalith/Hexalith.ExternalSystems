@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 
 using Hexalith.Application.Metadatas;
 using Hexalith.Application.Projections;
-using Hexalith.Domain.Events;
+using Hexalith.ExternalSystems.Events;
 using Hexalith.Infrastructure.DaprRuntime.ExternalSystems.Services;
 
 /// <summary>

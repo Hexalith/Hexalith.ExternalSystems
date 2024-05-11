@@ -11,7 +11,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\Core\Infrastructure\Hexalith.Infrastructure.WebApis.ExternalSystemsCommands\Hexalith.Infrastructure.WebApis.ExternalSystemsCommands.csproj" />
-		<ProjectReference Include="..\..\Core\Infrastructure\Hexalith.Infrastructure.DaprRuntime.ExternalSystems.Aggregates\Hexalith.Infrastructure.DaprRuntime.ExternalSystems.Aggregates.csproj" />
+		<ProjectReference Include="..\..\Infrastructure\Hexalith.ExternalSystems.CommandsWebApis\Hexalith.ExternalSystems.CommandsWebApis.csproj" />
+		<ProjectReference Include="..\..\Infrastructure\Hexalith.ExternalSystems.DaprAggregates\Hexalith.ExternalSystems.DaprAggregates.csproj" />
+		<ProjectReference Include="..\..\Infrastructure\Hexalith.ExternalSystems.EventsWebApis\Hexalith.ExternalSystems.EventsWebApis.csproj" />
 	</ItemGroup>
 </Project>

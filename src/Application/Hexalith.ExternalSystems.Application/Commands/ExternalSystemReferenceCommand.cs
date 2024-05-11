@@ -14,16 +14,15 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Hexalith.Application.ExternalSystems.Commands;
+namespace Hexalith.ExternalSystems.Application.Commands;
 
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
 using Hexalith.Application.Organizations.Commands;
-using Hexalith.Application.Organizations.Notifications;
-using Hexalith.Domain.Aggregates;
 using Hexalith.Domain.Events;
 using Hexalith.Extensions;
+using Hexalith.ExternalSystems.Domain.Helpers;
 
 /// <summary>
 /// Class CustomerEvent.
@@ -32,7 +31,7 @@ using Hexalith.Extensions;
 /// <seealso cref="BaseEvent" />
 [DataContract]
 [Serializable]
-public abstract class ExternalSystemReferenceCommand : PartitionedCommand
+public class ExternalSystemReferenceCommand : PartitionedCommand
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ExternalSystemReferenceCommand"/> class.
@@ -107,8 +106,8 @@ public abstract class ExternalSystemReferenceCommand : PartitionedCommand
     public string SystemId { get; set; }
 
     /// <inheritdoc/>
-    protected override string DefaultAggregateId() => ExternalSystemReference.GetAggregateId(PartitionId, CompanyId, SystemId, ReferenceAggregateName, ExternalId);
+    protected override string DefaultAggregateId() => ExternalSystemDomainHelper.GetExternalSystemReferenceAggregateId(PartitionId, CompanyId, SystemId, ReferenceAggregateName, ExternalId);
 
     /// <inheritdoc/>
-    protected override string DefaultAggregateName() => ExternalSystemReference.GetAggregateName();
+    protected override string DefaultAggregateName() => ExternalSystemDomainHelper.ExternalSystemReferenceAggregateName;
 }

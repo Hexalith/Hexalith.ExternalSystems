@@ -14,21 +14,23 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Hexalith.Domain.Aggregates;
+namespace Hexalith.ExternalSystems.Domain.Aggregates;
 
-using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 
+using Hexalith.Domain.Aggregates;
 using Hexalith.Domain.Events;
 using Hexalith.Domain.Exceptions;
+using Hexalith.ExternalSystems.Domain.Helpers;
+using Hexalith.ExternalSystems.Events;
 
 /// <summary>
 /// Class Customer.
-/// Implements the <see cref="Hexalith.Domain.Aggregates.Aggregate" />
-/// Implements the <see cref="Hexalith.Domain.Aggregates.IAggregate" />.
+/// Implements the <see cref="Aggregate" />
+/// Implements the <see cref="IAggregate" />.
 /// </summary>
-/// <seealso cref="Hexalith.Domain.Aggregates.Aggregate" />
-/// <seealso cref="Hexalith.Domain.Aggregates.IAggregate" />
+/// <seealso cref="Aggregate" />
+/// <seealso cref="IAggregate" />
 [DataContract]
 public record ExternalSystemReference(
     [property: DataMember] string PartitionId,
@@ -68,6 +70,19 @@ public record ExternalSystemReference(
     }
 
     /// <inheritdoc/>
+    public override string AggregateName => ExternalSystemDomainHelper.ExternalSystemReferenceAggregateName;
+
+    /// <inheritdoc/>
+    public override string AggregateId
+        => ExternalSystemDomainHelper
+            .GetExternalSystemReferenceAggregateId(
+                PartitionId,
+                CompanyId,
+                SystemId,
+                ReferenceAggregateName,
+                ExternalId);
+
+    /// <inheritdoc/>
     public override (IAggregate Aggregate, IEnumerable<BaseEvent> Events) Apply(BaseEvent domainEvent)
     {
         ArgumentNullException.ThrowIfNull(domainEvent);
@@ -79,41 +94,9 @@ public record ExternalSystemReference(
         }, []);
     }
 
-    /// <summary>
-    /// Gets the aggregate identifier.
-    /// </summary>
-    /// <param name="partitionId">The partition identifier.</param>
-    /// <param name="companyId">The company identifier.</param>
-    /// <param name="systemId">The system identifier.</param>
-    /// <param name="referenceAggregateName">Name of the reference aggregate.</param>
-    /// <param name="externalId">The external identifier.</param>
-    /// <returns>System.String.</returns>
-    public static string GetAggregateId(
-        [NotNull] string partitionId,
-        [NotNull] string companyId,
-        [NotNull] string systemId,
-        [NotNull] string referenceAggregateName,
-        [NotNull] string externalId)
-    {
-        ArgumentException.ThrowIfNullOrWhiteSpace(partitionId);
-        ArgumentException.ThrowIfNullOrWhiteSpace(companyId);
-        ArgumentException.ThrowIfNullOrWhiteSpace(systemId);
-        ArgumentException.ThrowIfNullOrWhiteSpace(referenceAggregateName);
-        ArgumentException.ThrowIfNullOrWhiteSpace(externalId);
-        return Normalize(GetAggregateName() + Separator + partitionId + Separator + companyId + Separator + systemId + Separator + referenceAggregateName + Separator + externalId);
-    }
-
-    /// <summary>
-    /// Gets the name of the aggregate.
-    /// </summary>
-    /// <returns>System.String.</returns>
-#pragma warning disable CA1024 // Use properties where appropriate
-    public static string GetAggregateName() => nameof(ExternalSystemReference);
-
-#pragma warning restore CA1024 // Use properties where appropriate
     /// <inheritdoc/>
     public override bool IsInitialized() => !string.IsNullOrWhiteSpace(ReferenceAggregateName);
 
     /// <inheritdoc/>
-    protected override string DefaultAggregateId() => GetAggregateId(PartitionId, CompanyId, SystemId, ReferenceAggregateName, ExternalId);
+    protected override string DefaultAggregateId() => ExternalSystemDomainHelper.GetExternalSystemReferenceAggregateId(PartitionId, CompanyId, SystemId, ReferenceAggregateName, ExternalId);
 }

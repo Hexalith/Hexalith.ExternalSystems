@@ -14,7 +14,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Hexalith.Application.ExternalSystems.CommandHandlers;
+namespace Hexalith.ExternalSystems.Application.CommandHandlers;
 
 using System;
 using System.Collections.Generic;
@@ -23,23 +23,24 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using Hexalith.Application.Commands;
-using Hexalith.Application.ExternalSystems.Commands;
 using Hexalith.Domain.Aggregates;
-using Hexalith.Domain.Events;
 using Hexalith.Domain.Messages;
+using Hexalith.ExternalSystems.Application.Commands;
+using Hexalith.ExternalSystems.Domain.Aggregates;
+using Hexalith.ExternalSystems.Events;
 
 /// <summary>
 /// Class MapExternalSystemReferenceHandler.
-/// Implements the <see cref="Hexalith.Application.Commands.CommandHandler{Hexalith.Application.ExternalSystems.Commands.AddExternalSystemReference}" />.
+/// Implements the <see cref="CommandHandler{AddExternalSystemReference}" />.
 /// </summary>
-/// <seealso cref="Hexalith.Application.Commands.CommandHandler{Hexalith.Application.ExternalSystems.Commands.AddExternalSystemReference}" />
+/// <seealso cref="CommandHandler{AddExternalSystemReference}" />
 public class AddExternalSystemReferenceHandler : CommandHandler<AddExternalSystemReference>
 {
     /// <inheritdoc/>
     public override async Task<IEnumerable<BaseMessage>> DoAsync([NotNull] AddExternalSystemReference command, IAggregate? aggregate, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(command);
-        return aggregate is not null and ExternalSystemReference external && external.ReferenceAggregateId == command.ReferenceAggregateId
+        return aggregate is ExternalSystemReference external && external.ReferenceAggregateId == command.ReferenceAggregateId
             ? []
             : await Task.FromResult<IEnumerable<BaseMessage>>([new ExternalSystemReferenceAdded(
             command.PartitionId,

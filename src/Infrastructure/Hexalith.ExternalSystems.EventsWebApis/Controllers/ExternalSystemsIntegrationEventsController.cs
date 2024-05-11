@@ -14,14 +14,14 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Hexalith.Infrastructure.WebApis.ExternalSystemsEvents.Controllers;
+namespace Hexalith.ExternalSystems.EventsWebApis.Controllers;
 
 using Dapr;
 
 using Hexalith.Application.Events;
 using Hexalith.Application.Projections;
 using Hexalith.Application.States;
-using Hexalith.Domain.Aggregates;
+using Hexalith.ExternalSystems.Domain.Helpers;
 using Hexalith.Infrastructure.WebApis.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
@@ -65,7 +65,7 @@ public abstract class ExternalSystemsIntegrationEventsController : EventIntegrat
     public async Task<ActionResult> HandleExternalSystemsEventsAsync(EventState eventState)
         => await HandleEventAsync(
                 eventState,
-                ExternalSystemReference.GetAggregateName(),
+                ExternalSystemDomainHelper.ExternalSystemReferenceAggregateName,
                 CancellationToken.None)
             .ConfigureAwait(false);
 }

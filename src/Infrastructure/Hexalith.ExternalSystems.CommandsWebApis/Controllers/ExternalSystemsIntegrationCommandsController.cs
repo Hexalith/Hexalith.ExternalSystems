@@ -14,13 +14,13 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Hexalith.Infrastructure.WebApis.ExternalSystemsCommands.Controllers;
+namespace Hexalith.ExternalSystems.CommandsWebApis.Controllers;
 
 using Dapr;
 
 using Hexalith.Application.Commands;
 using Hexalith.Application.States;
-using Hexalith.Domain.Aggregates;
+using Hexalith.ExternalSystems.Domain.Helpers;
 using Hexalith.Infrastructure.WebApis.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
@@ -58,7 +58,7 @@ public class ExternalSystemsIntegrationCommandsController(
     {
         return await HandleCommandAsync(
                     commandState,
-                    ExternalSystemReference.GetAggregateName(),
+                    ExternalSystemDomainHelper.ExternalSystemReferenceAggregateName,
                     CancellationToken.None)
                 .ConfigureAwait(false);
     }

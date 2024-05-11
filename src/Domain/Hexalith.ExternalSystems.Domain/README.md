@@ -1,2 +1,2 @@
-# Hexalith.Domain.Abstractions
+# Hexalith.ExternalSystems.Domain
 

@@ -13,16 +13,16 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace Hexalith.Application.ExternalSystems.Helpers;
+namespace Hexalith.ExternalSystems.Application.Helpers;
 
 using System.Diagnostics.CodeAnalysis;
 
 using FluentValidation;
 
 using Hexalith.Application.Commands;
-using Hexalith.Application.ExternalSystems.CommandHandlers;
-using Hexalith.Application.ExternalSystems.Commands;
-using Hexalith.Domain.Events;
+using Hexalith.ExternalSystems.Application.CommandHandlers;
+using Hexalith.ExternalSystems.Application.Commands;
+using Hexalith.ExternalSystems.Events;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -37,7 +37,7 @@ public static class ExternalSystemsHelper
     /// </summary>
     /// <param name="services">The services.</param>
     /// <returns>IServiceCollection.</returns>
-    /// <exception cref="System.ArgumentNullException">null.</exception>
+    /// <exception cref="ArgumentNullException">null.</exception>
     public static IServiceCollection AddExternalSystemsCommandHandlers([NotNull] this IServiceCollection services)
     {
         ArgumentNullException.ThrowIfNull(services);
@@ -52,7 +52,7 @@ public static class ExternalSystemsHelper
     /// </summary>
     /// <param name="services">The services.</param>
     /// <returns>IServiceCollection.</returns>
-    /// <exception cref="System.ArgumentNullException">null.</exception>
+    /// <exception cref="ArgumentNullException">null.</exception>
     public static IServiceCollection AddExternalSystemsEventValidators([NotNull] this IServiceCollection services)
     {
         ArgumentNullException.ThrowIfNull(services);

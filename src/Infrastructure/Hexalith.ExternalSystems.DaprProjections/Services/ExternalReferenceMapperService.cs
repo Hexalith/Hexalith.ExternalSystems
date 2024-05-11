@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 using Dapr.Actors;
 using Dapr.Actors.Client;
 
-using Hexalith.Application.ExternalSystems.Services;
+using Hexalith.ExternalSystems.Application.Services;
 using Hexalith.Infrastructure.DaprRuntime.Abstractions.Actors;
 using Hexalith.Infrastructure.DaprRuntime.ExternalSystems.Helpers;
 

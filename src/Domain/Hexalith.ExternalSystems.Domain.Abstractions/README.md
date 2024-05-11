@@ -1,0 +1,3 @@
+# Hexalith.ExternalSystems.Domain.Abstractions
+
+

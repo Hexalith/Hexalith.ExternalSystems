@@ -13,7 +13,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace Hexalith.Application.ExternalSystems.Services;
+namespace Hexalith.ExternalSystems.Application.Services;
 
 /// <summary>
 /// Interface IExternalReferenceQueryService.

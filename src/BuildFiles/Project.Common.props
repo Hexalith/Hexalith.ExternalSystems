@@ -28,8 +28,8 @@
 	<PropertyGroup>
 		<Authors>Jérôme Piquot</Authors>
 		<Company>Fiveforty</Company>
-		<Product>Hexalith Inventories</Product>
-		<RepositoryUrl>https://github.com/Hexalith/Hexalith.Inventories.git</RepositoryUrl>
+		<Product>Hexalith External Systems</Product>
+		<RepositoryUrl>https://github.com/Hexalith/Hexalith.ExternalSystems.git</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 	</PropertyGroup>
 	<PropertyGroup>
@@ -39,7 +39,7 @@
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
 		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-		<NoWarn>MA0101;S112;CA2201;S1451;SA1609;S4055;SA1633;SA1627</NoWarn>
+		<NoWarn>MA0101;S112;CA2201;S1451;SA1609;S4055;SA1633;SA1627;S113;</NoWarn>
 	</PropertyGroup>
 	<PropertyGroup>
 		<CodeAnalysisRuleSet>$(MSBuildThisFileDirectory).stylecop.ruleset</CodeAnalysisRuleSet>

@@ -14,16 +14,16 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Hexalith.Infrastructure.WebApis.ExternalSystemsEvents.Helpers;
+namespace Hexalith.ExternalSystems.EventsWebApis.Helpers;
 
 using System.Diagnostics.CodeAnalysis;
 
-using Hexalith.Application.ExternalSystems.Services;
 using Hexalith.Application.Projections;
-using Hexalith.Domain.Events;
+using Hexalith.ExternalSystems.Application.Services;
+using Hexalith.ExternalSystems.Events;
+using Hexalith.ExternalSystems.EventsWebApis.Controllers;
 using Hexalith.Infrastructure.DaprRuntime.ExternalSystems.Projections;
 using Hexalith.Infrastructure.DaprRuntime.ExternalSystems.Services;
-using Hexalith.Infrastructure.WebApis.ExternalSystemsEvents.Controllers;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;

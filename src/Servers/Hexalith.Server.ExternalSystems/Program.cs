@@ -4,8 +4,8 @@
 //     See LICENSE file in the project root for full license information.
 // </copyright>
 
-using Hexalith.Infrastructure.DaprRuntime.ExternalSystems.Aggregates.Helpers;
-using Hexalith.Infrastructure.WebApis.ExternalSystemsCommands.Helpers;
+using Hexalith.ExternalSystems.CommandsWebApis.Helpers;
+using Hexalith.ExternalSystems.DaprAggregates.Helpers;
 using Hexalith.Infrastructure.WebApis.Helpers;
 using Hexalith.Server.ExternalSystems;
 
