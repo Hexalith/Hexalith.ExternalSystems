@@ -10,7 +10,7 @@ using Hexalith.Domain.Aggregates;
 public static class ExternalSystemDomainHelper
 {
     /// <summary>
-    /// Gets the aggregate name for the InventoryItem.
+    /// Gets the aggregate name for the ExternalSystemReference.
     /// </summary>
     public static string ExternalSystemReferenceAggregateName => "ExternalSystemReference";
 
@@ -19,17 +19,6 @@ public static class ExternalSystemDomainHelper
     /// </summary>
     /// <value>The identifier separator.</value>
     public static char IdSeparator => '-';
-
-    /// <summary>
-    /// Gets the aggregate ID for the ExternalSystemReference.
-    /// </summary>
-    /// <param name="partitionId">The partition ID.</param>
-    /// <param name="companyId">The company ID.</param>
-    /// <param name="originId">The origin ID.</param>
-    /// <param name="id">The ID.</param>
-    /// <returns>The aggregate ID.</returns>
-    public static string GetExternalSystemReferenceAggregateId(string partitionId, string companyId, string originId, string id)
-        => Aggregate.Normalize(ExternalSystemReferenceAggregateName + IdSeparator + partitionId + IdSeparator + companyId + IdSeparator + originId + IdSeparator + id);
 
     /// <summary>
     /// Gets the aggregate ID for the ExternalSystemReference.
