@@ -48,10 +48,10 @@ jobs:
         dotnet build './src/Domain/Hexalith.ExternalSystems.Domain/Hexalith.ExternalSystems.Domain.csproj' --configuration Release -p:Version=${{ env.VERSION }}
         dotnet build './src/Domain/Hexalith.ExternalSystems.Domain.Abstractions/Hexalith.ExternalSystems.Domain.Abstractions.csproj' --configuration Release -p:Version=${{ env.VERSION }}
         dotnet build './src/Domain/Hexalith.ExternalSystems.Events/Hexalith.ExternalSystems.Events.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Infrastructure/Hexalith.ExternalSystems.CommandsWebApis/Hexalith.ExternalSystems.CommandsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Infrastructure/Hexalith.ExternalSystems.DaprRuntime/Hexalith.ExternalSystems.DaprRuntime.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Infrastructure/Hexalith.ExternalSystems.DaprRuntime.Abstractions/Hexalith.ExternalSystems.DaprRuntime.Abstractions.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Infrastructure/Hexalith.ExternalSystems.EventsWebApis/Hexalith.ExternalSystems.EventsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Hexalith.ExternalSystems.CommandsWebApis/Hexalith.ExternalSystems.CommandsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Hexalith.ExternalSystems.DaprRuntime/Hexalith.ExternalSystems.DaprRuntime.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Hexalith.ExternalSystems.DaprRuntime.Abstractions/Hexalith.ExternalSystems.DaprRuntime.Abstractions.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Hexalith.ExternalSystems.EventsWebApis/Hexalith.ExternalSystems.EventsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
     - name: Unit Tests
       run: |
         dotnet test -c Release --no-restore --no-build ./test/Hexalith.ExternalSystems.UnitTests/Hexalith.ExternalSystems.UnitTests.csproj

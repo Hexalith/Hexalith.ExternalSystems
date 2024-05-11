@@ -134,6 +134,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servers", "Servers", "{E0E8D9A4-0B77-4F2D-BD6E-7931FEE42ACB}"
 	ProjectSection(SolutionItems) = preProject
 		src\Servers\Directory.Build.props = src\Servers\Directory.Build.props
+		src\Servers\publish_containers.ps1 = src\Servers\publish_containers.ps1
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Server.ExternalSystems", "src\Servers\Hexalith.Server.ExternalSystems\Hexalith.Server.ExternalSystems.csproj", "{87A78320-56AC-44E5-BC30-04AD1AE1F40F}"
