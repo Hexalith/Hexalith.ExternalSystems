@@ -1,4 +1,4 @@
-name: Hexalith Inventories Build
+name: Hexalith External Systems Build
 on:
   push:
     paths-ignore:
@@ -43,18 +43,18 @@ jobs:
       run: |
     - name: Build
       run: |
-       dotnet build './src/Application/Hexalith.Inventories.Application/Hexalith.Inventories.Application.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Application/Hexalith.Inventories.Commands/Hexalith.Inventories.Commands.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Domain/Hexalith.Inventories.Domain/Hexalith.Inventories.Domain.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Domain/Hexalith.Inventories.Domain.Abstractions/Hexalith.Inventories.Domain.Abstractions.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Domain/Hexalith.Inventories.Events/Hexalith.Inventories.Events.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Infrastructure/Hexalith.Inventories.CommandsWebApis/Hexalith.Inventories.CommandsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Infrastructure/Hexalith.Inventories.DaprRuntime/Hexalith.Inventories.DaprRuntime.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Infrastructure/Hexalith.Inventories.DaprRuntime.Abstractions/Hexalith.Inventories.DaprRuntime.Abstractions.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Infrastructure/Hexalith.Inventories.EventsWebApis/Hexalith.Inventories.EventsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+       dotnet build './src/Application/Hexalith.ExternalSystems.Application/Hexalith.ExternalSystems.Application.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Application/Hexalith.ExternalSystems.Commands/Hexalith.ExternalSystems.Commands.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Domain/Hexalith.ExternalSystems.Domain/Hexalith.ExternalSystems.Domain.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Domain/Hexalith.ExternalSystems.Domain.Abstractions/Hexalith.ExternalSystems.Domain.Abstractions.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Domain/Hexalith.ExternalSystems.Events/Hexalith.ExternalSystems.Events.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Infrastructure/Hexalith.ExternalSystems.CommandsWebApis/Hexalith.ExternalSystems.CommandsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Infrastructure/Hexalith.ExternalSystems.DaprRuntime/Hexalith.ExternalSystems.DaprRuntime.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Infrastructure/Hexalith.ExternalSystems.DaprRuntime.Abstractions/Hexalith.ExternalSystems.DaprRuntime.Abstractions.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Infrastructure/Hexalith.ExternalSystems.EventsWebApis/Hexalith.ExternalSystems.EventsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
     - name: Unit Tests
       run: |
-        dotnet test -c Release --no-restore --no-build ./test/Hexalith.Inventories.UnitTests/Hexalith.Inventories.UnitTests.csproj
+        dotnet test -c Release --no-restore --no-build ./test/Hexalith.ExternalSystems.UnitTests/Hexalith.ExternalSystems.UnitTests.csproj
     - name: Publish packages to GitHub
       run: |
         dotnet nuget push './src/Core/**/*.nupkg' -k ${{secrets.GITHUB_TOKEN}} -n -s https://nuget.pkg.github.com/Hexalith/index.json --skip-duplicate
@@ -68,7 +68,7 @@ jobs:
         registry: ${{ vars.AZURE_REGISTRY }}
         username: ${{ secrets.AZURE_APPLICATIONID }}
         password: ${{ secrets.AZURE_APPLICATIONSECRET }}
-    - name: Publish and push the Inventories server container images to the container registry
+    - name: Publish and push the ExternalSystems server container images to the container registry
       run: |
-          dotnet publish './src/Servers/Hexalith.Server.Inventories/Hexalith.Server.Inventories.csproj' /t:PublishContainer --configuration Release --os linux --arch x64 -p:ContainerImageTags='"${{ env.VERSION }};latest"' -p:ContainerRegistry=${{ vars.AZURE_REGISTRY }}
+          dotnet publish './src/Servers/Hexalith.Server.ExternalSystems/Hexalith.Server.ExternalSystems.csproj' /t:PublishContainer --configuration Release --os linux --arch x64 -p:ContainerImageTags='"${{ env.VERSION }};latest"' -p:ContainerRegistry=${{ vars.AZURE_REGISTRY }}
  
