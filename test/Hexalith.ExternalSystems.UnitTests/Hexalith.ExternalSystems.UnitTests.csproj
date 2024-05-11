@@ -5,8 +5,13 @@
   <ItemGroup>
     <None Include="..\..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
-  <ItemGroup>
-	  <ProjectReference Include="..\..\Hexalith\src\Core\Common\Hexalith.TestMocks\Hexalith.TestMocks.csproj" />
+	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(BuildingByReSharper)' == 'true'">
+		<ProjectReference Include="$(HexalithPath)\src\Core\Common\Hexalith.TestMocks\Hexalith.TestMocks.csproj" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' != 'true' and '$(BuildingByReSharper)' != 'true'">
+		<PackageReference Include="Hexalith.TestMocks" Version="$(HexalithVersion)" />
+	</ItemGroup>
+	<ItemGroup>
 	  <ProjectReference Include="..\..\src\Servers\Hexalith.Server.ExternalSystems\Hexalith.Server.ExternalSystems.csproj" />
   </ItemGroup>
   <ItemGroup>
