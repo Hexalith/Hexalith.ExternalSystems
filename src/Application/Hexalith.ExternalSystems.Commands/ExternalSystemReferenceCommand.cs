@@ -34,6 +34,12 @@ using Hexalith.ExternalSystems.Domain.Helpers;
 public abstract class ExternalSystemReferenceCommand : PartitionedCommand
 {
     /// <summary>
+    /// Initializes a new instance of the <see cref="ExternalSystemReferenceCommand" /> class.
+    /// </summary>
+    [Obsolete(DefaultLabels.ForSerializationOnly, true)]
+    public ExternalSystemReferenceCommand() => CompanyId = SystemId = ReferenceAggregateId = ReferenceAggregateName = ExternalId = string.Empty;
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="ExternalSystemReferenceCommand"/> class.
     /// </summary>
     /// <param name="partitionId">The partition identifier.</param>
@@ -58,12 +64,6 @@ public abstract class ExternalSystemReferenceCommand : PartitionedCommand
         ReferenceAggregateId = referenceAggregateId;
         CompanyId = companyId;
     }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ExternalSystemReferenceCommand" /> class.
-    /// </summary>
-    [Obsolete(DefaultLabels.ForSerializationOnly, true)]
-    protected ExternalSystemReferenceCommand() => CompanyId = SystemId = ReferenceAggregateId = ReferenceAggregateName = ExternalId = string.Empty;
 
     /// <summary>
     /// Gets or sets the company identifier.
