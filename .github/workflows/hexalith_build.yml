@@ -43,14 +43,14 @@ jobs:
       run: |
     - name: Build
       run: |
-       dotnet build './src/Application/Hexalith.ExternalSystems.Application/Hexalith.ExternalSystems.Application.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Application/Hexalith.ExternalSystems.Commands/Hexalith.ExternalSystems.Commands.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Domain/Hexalith.ExternalSystems.Domain/Hexalith.ExternalSystems.Domain.csproj' --configuration Release -p:Version=${{ env.VERSION }}
         dotnet build './src/Domain/Hexalith.ExternalSystems.Domain.Abstractions/Hexalith.ExternalSystems.Domain.Abstractions.csproj' --configuration Release -p:Version=${{ env.VERSION }}
         dotnet build './src/Domain/Hexalith.ExternalSystems.Events/Hexalith.ExternalSystems.Events.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Infrastructure/Hexalith.ExternalSystems.CommandsWebApis/Hexalith.ExternalSystems.CommandsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Domain/Hexalith.ExternalSystems.Domain/Hexalith.ExternalSystems.Domain.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Application/Hexalith.ExternalSystems.Commands/Hexalith.ExternalSystems.Commands.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Application/Hexalith.ExternalSystems.Application/Hexalith.ExternalSystems.Application.csproj' --configuration Release -p:Version=${{ env.VERSION }}
         dotnet build './src/Infrastructure/Hexalith.ExternalSystems.DaprAggregates/Hexalith.ExternalSystems.DaprAggregates.csproj' --configuration Release -p:Version=${{ env.VERSION }}
         dotnet build './src/Infrastructure/Hexalith.ExternalSystems.DaprProjections/Hexalith.ExternalSystems.DaprProjections.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/Infrastructure/Hexalith.ExternalSystems.CommandsWebApis/Hexalith.ExternalSystems.CommandsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
         dotnet build './src/Infrastructure/Hexalith.ExternalSystems.EventsWebApis/Hexalith.ExternalSystems.EventsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
     - name: Unit Tests
       run: |

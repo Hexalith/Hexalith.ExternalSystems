@@ -50,8 +50,8 @@ jobs:
           dotnet build './src/Domain/Hexalith.ExternalSystems.Domain/Hexalith.ExternalSystems.Domain.csproj' --configuration Release -p:Version=${{ env.VERSION }}
           dotnet build './src/Application/Hexalith.ExternalSystems.Commands/Hexalith.ExternalSystems.Commands.csproj' --configuration Release -p:Version=${{ env.VERSION }}
           dotnet build './src/Application/Hexalith.ExternalSystems.Application/Hexalith.ExternalSystems.Application.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-          dotnet build './src/Infrastructure/Hexalith.ExternalSystems.CommandsWebApis/Hexalith.ExternalSystems.CommandsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
           dotnet build './src/Infrastructure/Hexalith.ExternalSystems.DaprAggregates/Hexalith.ExternalSystems.DaprAggregates.csproj' --configuration Release -p:Version=${{ env.VERSION }}
           dotnet build './src/Infrastructure/Hexalith.ExternalSystems.DaprProjections/Hexalith.ExternalSystems.DaprProjections.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+          dotnet build './src/Infrastructure/Hexalith.ExternalSystems.CommandsWebApis/Hexalith.ExternalSystems.CommandsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
           dotnet build './src/Infrastructure/Hexalith.ExternalSystems.EventsWebApis/Hexalith.ExternalSystems.EventsWebApis.csproj' --configuration Release -p:Version=${{ env.VERSION }}
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
