@@ -19,7 +19,7 @@ namespace Hexalith.ExternalSystems.Application.Commands;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
-using Hexalith.Application.Organizations.Commands;
+using Hexalith.Application.Commands;
 using Hexalith.Domain.Events;
 using Hexalith.Extensions;
 using Hexalith.ExternalSystems.Domain.Helpers;
