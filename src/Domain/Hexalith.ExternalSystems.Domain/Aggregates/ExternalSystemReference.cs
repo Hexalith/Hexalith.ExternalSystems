@@ -21,6 +21,7 @@ using System.Runtime.Serialization;
 using Hexalith.Domain.Aggregates;
 using Hexalith.Domain.Events;
 using Hexalith.Domain.Exceptions;
+using Hexalith.Domain.Messages;
 using Hexalith.ExternalSystems.Domain.Helpers;
 using Hexalith.ExternalSystems.Events;
 
@@ -83,7 +84,7 @@ public record ExternalSystemReference(
                 ExternalId);
 
     /// <inheritdoc/>
-    public override (IAggregate Aggregate, IEnumerable<BaseEvent> Events) Apply(BaseEvent domainEvent)
+    public override (IAggregate Aggregate, IEnumerable<BaseMessage> Messages) Apply(BaseEvent domainEvent)
     {
         ArgumentNullException.ThrowIfNull(domainEvent);
         return (domainEvent switch
